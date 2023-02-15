@@ -8,14 +8,15 @@ export function threeDayForecast(results,contentAppend){
         const tempEachHour = document.createElement("p");
         
         cardDate.innerHTML = `${results.forecast.forecastday[i].date}`;
-        tempEachHour
+        tempEachHour.innerHTML = `${dayData.hour.temp_c}`
 
         contentAppend.appendChild(cardDate);
+        contentAppend.appendChild(tempEachHour);
     }
 }
 
 function displayHourlyTemp(results){
     for(let i = 0; i < results.length; i++){
-        console.log(results[i].temp_c);
+        let results = results[i];
     }
 }
