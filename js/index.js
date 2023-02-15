@@ -1,9 +1,9 @@
 import { tempInfoCreate } from "./components/tempInfoCreate.js";
 import  { message }  from "./components/errorMessage.js";
+import { obtainDateAndTime } from "./components/liveDateTime.js";
 
 const infoContainer = document.querySelector(".infoContainer");
 const countryCard = document.querySelector(".countryCard");
-const timeAndDate = document.querySelector(".time-date");
 
 const countries = ['Oslo', 'Bergen', 'Stavanger', 'Trondheim'];
 
@@ -15,6 +15,8 @@ const options = {
 		'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
 	}
 };
+
+obtainDateAndTime();
 
 
 async function APIFetch(){
@@ -50,18 +52,6 @@ function createCountryCards(results){
     pageDirect.appendChild(cardHeader);
     tempInfoCreate(results, pageDirect);
 }
-
-// look at code on my GitHub
-function obtainDateAndTime(){
-    let today = new Date();
-    let displayDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    let displayTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-
-    timeAndDate.innerHTML = `<h2>${displayDate}</h2>
-                            <h2>${displayTime}</h2>`
-}
-obtainDateAndTime();
-
 
 // Maybe some news from Norway
 // Interesting fact about that day

@@ -1,5 +1,6 @@
 import { tempInfoCreate } from "./components/tempInfoCreate.js";
 import  { message }  from "./components/errorMessage.js";
+import { threeDayForecast } from "./components/threeDayForecast.js";
 
 const countryInfoContainer = document.querySelector(".countryInfoContainer");
 const threeDayforecastContainer = document.querySelector(".three-day-forecast");
@@ -26,6 +27,7 @@ async function fetchLocation(){
         const results = await response.json();
         console.log(results);
         weatherData(results);
+        threeDayForecast(results, threeDayforecastContainer);
     }
     catch(error) {
         const errorMessage = error.message ? error.message : error;
@@ -42,5 +44,4 @@ function weatherData(results){
     countryInfoContainer.appendChild(titleHeader);
     tempInfoCreate(results,countryInfoContainer);
 };
-
 // Have the same basic info as up top from tempInfoCreate. Underneath add the 10 day forecast etc
