@@ -1,0 +1,21 @@
+.form-error {
+    display: none;
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+#contactForm{
+    display: grid;
+    max-width: 300px;
+}
+
+.input-section{
+    display: grid;
+    margin: 10px 5px;
+}
+
+.success-message{
+    display: none;
+    color: green;
+}

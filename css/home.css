@@ -1,0 +1,8 @@
+.countryCard > * {
+    margin: 20px 30px;
+    border: 1px lightgrey solid;
+}
+
+.countryCard a > * {
+    padding: 5px 20px;
+}
