@@ -1,9 +1,10 @@
-import { tempInfoCreate } from "./components/tempInfoCreate.js";
+import { tempInfoCreate, currentDayHourlyData } from "./components/currentDayData.js";
 import  { message }  from "./components/errorMessage.js";
 import { threeDayForecast } from "./components/threeDayForecast.js";
 
 const countryInfoContainer = document.querySelector(".countryInfoContainer");
 const threeDayforecastContainer = document.querySelector(".three-day-forecast");
+const todayHourlyWeather = document.querySelector(".today-hourly-weather");
 
 const locationString = document.location.search;
 
@@ -38,10 +39,10 @@ fetchLocation();
 
 
 function weatherData(results){
-    const titleHeader = document.createElement("h1");
+    const titleHeader = document.querySelector(".location-header");
     titleHeader.innerHTML = `${results.location.name}`;
 
-    countryInfoContainer.appendChild(titleHeader);
-    tempInfoCreate(results,countryInfoContainer);
+    tempInfoCreate(results, countryInfoContainer);
+    currentDayHourlyData(results, todayHourlyWeather);
 };
 // Have the same basic info as up top from tempInfoCreate. Underneath add the 10 day forecast etc

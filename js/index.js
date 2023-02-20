@@ -1,4 +1,4 @@
-import { tempInfoCreate } from "./components/tempInfoCreate.js";
+import { tempInfoCreate } from "./components/currentDayData.js";
 import  { message }  from "./components/errorMessage.js";
 import { obtainDateAndTime } from "./components/liveDateTime.js";
 

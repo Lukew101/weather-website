@@ -27,3 +27,8 @@ h1{
 .tempInfo-top-info{
     flex-basis: 100%;
 }
+
+.card-extra-info-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

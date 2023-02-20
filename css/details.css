@@ -8,3 +8,15 @@
     margin-left: 50%;
     transform: translateX(-50%);
 }
+
+.todays-weather-data{
+    display: flex;
+}
+
+.temp-time-data{
+    display: inline-block;
+}
+
+.temp-time-data > *{
+    margin: 20px 10px;
+}
