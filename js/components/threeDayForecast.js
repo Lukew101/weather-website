@@ -1,11 +1,15 @@
+import { getDayofDate } from "./currentDayOfDate.js";
+
 export function threeDayForecast(results,contentAppend){
     for(let i = 1; i < results.forecast.forecastday.length; i++){
         
         let dayData = results.forecast.forecastday[i];
 
         const cardDate = document.createElement("h2");
-        
-        cardDate.innerHTML = `${results.forecast.forecastday[i].date}`;
+
+        const forecastDates = `${results.forecast.forecastday[i].date}`;
+
+        getDayofDate(forecastDates, cardDate, forecastDates);
 
         contentAppend.appendChild(cardDate);
         displayHourlyTemp(dayData.hour,contentAppend);

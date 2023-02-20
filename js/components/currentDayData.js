@@ -1,5 +1,10 @@
 export const tempInfoCreate = (results,contentAppend) => {
     const tempInfo = document.createElement("div");
+    tempInfo.classList = "current-weather-data";
+
+    const date = new Date();
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayOfWeek = daysOfWeek[date.getDay()];
 
     tempInfo.innerHTML = `<div class="tempInfo-top-sec">
                             <img src="${results.current.condition.icon}" class="weather-icon">
@@ -24,11 +29,11 @@ export const tempInfoCreate = (results,contentAppend) => {
                            </div>
                            <div>
                                 <h3>Humidity</h3>
-                                <p>${results.current.humidity}kph</p>
+                                <p>${results.current.humidity}%</p>
                            </div>
                            <div>
                                 <h3>UV</h3>
-                                <p>${results.current.uv}kph</p>
+                                <p>${results.current.uv}</p>
                            </div>
                         </div>`;
     

@@ -20,3 +20,7 @@
 .temp-time-data > *{
     margin: 20px 10px;
 }
+
+.current-weather-data{
+    display: flex;
+}

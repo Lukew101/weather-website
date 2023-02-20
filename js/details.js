@@ -1,10 +1,12 @@
 import { tempInfoCreate, currentDayHourlyData } from "./components/currentDayData.js";
 import  { message }  from "./components/errorMessage.js";
 import { threeDayForecast } from "./components/threeDayForecast.js";
+import { getDayofDate } from "./components/currentDayOfDate.js";
 
 const countryInfoContainer = document.querySelector(".countryInfoContainer");
 const threeDayforecastContainer = document.querySelector(".three-day-forecast");
 const todayHourlyWeather = document.querySelector(".today-hourly-weather");
+const currentDateHeader = document.querySelector(".current-date");
 
 const locationString = document.location.search;
 
@@ -41,7 +43,9 @@ fetchLocation();
 function weatherData(results){
     const titleHeader = document.querySelector(".location-header");
     titleHeader.innerHTML = `${results.location.name}`;
+    const currentDayOfDate = results.location.localtime.split(' ')[0];
 
+    getDayofDate(currentDayOfDate, currentDateHeader,currentDayOfDate);
     tempInfoCreate(results, countryInfoContainer);
     currentDayHourlyData(results, todayHourlyWeather);
 };
