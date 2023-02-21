@@ -10,7 +10,7 @@ const form = document.querySelector("form");
 const searchErrorMessage = document.querySelector(".search-error-message");
 
 const countries = ['oslo', 'bergen', 'stavanger', 'trondheim', 'tromsø'];
-const searchLocations = ['oslo', 'bergen', 'stavanger', 'trondheim', 'tromsø','jessheim']
+const searchLocations = ['oslo', 'bergen', 'stavanger', 'trondheim', 'tromsø','jessheim', 'kristiansand', 'ålesund', 'lillehammer', 'hamar', 'arendal', 'fredrikstad', 'bodø']
 
 
 const options = {
@@ -46,30 +46,27 @@ APIFetch();
 function userSearchInput(){
     inputBar.addEventListener("keyup", function(event) {
         if (event.key === "Enter") {
-          form.dispatchEvent(new Event("submit"));
+          searchButton.click();
         }
       });
-      
+    
       form.addEventListener("submit", function(event) {
         event.preventDefault();
         const searchInput = inputBar.value.toLowerCase();
         const findLocation = searchLocations.find(function(placeLocation) {
           return placeLocation === searchInput;
         });
-        
+    
         if (findLocation) {
           location.href = `details.html?q=${findLocation}`;
         } else {
-            searchErrorMessage.innerHTML = message("error", "Invalid input. Try again");
+          searchErrorMessage.innerHTML = message("error", "Invalid input. Try again");
         }
-
-        searchButton.addEventListener("click", function(event) {
-            event.preventDefault();
-            form.dispatchEvent(new Event("submit"));
-          });
-          inputBar.value = "";
+    
+        inputBar.value = "";
       });
 }
+// Make a search bar that drops down locations and that the user must click one
 userSearchInput();
 
 
