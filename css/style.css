@@ -7,6 +7,15 @@ a{
     color: black;
 }
 
+body{
+    margin: 0px;
+}
+
+header{
+    height: 100px;
+    background-color: #373737;
+}
+
 h1{
     text-align: center;
 }

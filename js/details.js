@@ -2,6 +2,7 @@ import { tempInfoCreate, currentDayHourlyData } from "./components/currentDayDat
 import  { message }  from "./components/errorMessage.js";
 import { threeDayForecast } from "./components/threeDayForecast.js";
 import { getDayofDate } from "./components/currentDayOfDate.js";
+import { changeCurrentDayBackground } from "./components/currentDayBackChange.js";
 
 const countryInfoContainer = document.querySelector(".countryInfoContainer");
 const threeDayforecastContainer = document.querySelector(".three-day-forecast");
@@ -45,8 +46,11 @@ function weatherData(results){
     titleHeader.innerHTML = `${results.location.name}`;
     const currentDayOfDate = results.location.localtime.split(' ')[0];
 
+    const weatherCondition = results.current.condition.text;
+
     getDayofDate(`${currentDayOfDate}`, currentDateHeader,currentDayOfDate);
     tempInfoCreate(results, countryInfoContainer);
     currentDayHourlyData(results, todayHourlyWeather);
+    changeCurrentDayBackground(countryInfoContainer, weatherCondition);
 };
 // Have the same basic info as up top from tempInfoCreate. Underneath add the 10 day forecast etc

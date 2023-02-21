@@ -18,8 +18,6 @@ export function threeDayForecast(results,contentAppend){
 
 function displayHourlyTemp(results,contentAppend){
     for(let i = 0; i < results.length; i++){
-        console.log(results[i].temp_c);
-        console.log(results[i].time);
 
         const timeWithoutDate = results[i].time.split(' ')[1];
         const timeWithoutDateNumber = parseInt(timeWithoutDate);

@@ -24,3 +24,5 @@
 .current-weather-data{
     display: flex;
 }
+
+/*If weather is a certain temp/condition, change background.*/

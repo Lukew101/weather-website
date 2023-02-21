@@ -10,7 +10,7 @@ const form = document.querySelector("form");
 const searchErrorMessage = document.querySelector(".search-error-message");
 
 const countries = ['oslo', 'bergen', 'stavanger', 'trondheim', 'tromsø'];
-const searchLocations = ['oslo', 'bergen', 'stavanger', 'trondheim', 'tromsø','jessheim', 'kristiansand', 'ålesund', 'lillehammer', 'hamar', 'arendal', 'fredrikstad', 'bodø']
+const searchLocations = ['oslo', 'bergen', 'stavanger', 'trondheim', 'tromsø','jessheim', 'kristiansand', 'ålesund', 'lillehammer', 'hamar', 'arendal', 'fredrikstad', 'bodø', 'narvik', 'sandefjord', 'harstad', 'larvik']
 
 
 const options = {
