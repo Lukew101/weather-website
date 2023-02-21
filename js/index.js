@@ -1,11 +1,16 @@
+import { obtainDateAndTime } from "./components/liveDateTime.js";
 import { tempInfoCreate } from "./components/currentDayData.js";
 import  { message }  from "./components/errorMessage.js";
-import { obtainDateAndTime } from "./components/liveDateTime.js";
 
 const infoContainer = document.querySelector(".infoContainer");
 const countryCard = document.querySelector(".countryCard");
+const inputBar = document.querySelector("#search");
+const searchButton = document.querySelector("#search-button");
+const form = document.querySelector("form");
+const searchErrorMessage = document.querySelector(".search-error-message");
 
-const countries = ['Oslo', 'Bergen', 'Stavanger', 'Trondheim'];
+const countries = ['oslo', 'bergen', 'stavanger', 'trondheim', 'tromsø'];
+const searchLocations = ['oslo', 'bergen', 'stavanger', 'trondheim', 'tromsø','jessheim']
 
 
 const options = {
@@ -17,7 +22,6 @@ const options = {
 };
 
 obtainDateAndTime();
-
 
 async function APIFetch(){
     try{
@@ -39,10 +43,40 @@ async function APIFetch(){
 }
 APIFetch();
 
+function userSearchInput(){
+    inputBar.addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+          form.dispatchEvent(new Event("submit"));
+        }
+      });
+      
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const searchInput = inputBar.value.toLowerCase();
+        const findLocation = searchLocations.find(function(placeLocation) {
+          return placeLocation === searchInput;
+        });
+        
+        if (findLocation) {
+          location.href = `details.html?q=${findLocation}`;
+        } else {
+            searchErrorMessage.innerHTML = message("error", "Invalid input. Try again");
+        }
+
+        searchButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            form.dispatchEvent(new Event("submit"));
+          });
+          inputBar.value = "";
+      });
+}
+userSearchInput();
+
+
+
 function createCountryCards(results){
     const pageDirect = document.createElement("a");
     const cardHeader = document.createElement("h2");
-    // const weatherImage = document.createElement("i");
 
     pageDirect.setAttribute("href", `details.html?q=${results.location.name}`);
 

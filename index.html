@@ -9,13 +9,21 @@
     <link href="/css/home.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Weather in Norway</h1>
-    <div class="time-date"></div>
-    <div class="infoContainer">
-        <div class="countryCard"></div>
-    </div>
-    
+    <header>
 
+    </header>
+    <main>
+        <h1>Weather in Norway</h1>
+        <div class="time-date"></div>
+        <form>
+            <input name="search" type="text" id="search" placeholder="Search Norwegian city here" />
+            <button type="submit" id="search-button"></button>
+            <p class="search-error-message"></p>
+        </form>
+        <div class="infoContainer">
+            <div class="countryCard"></div>
+        </div>
+    </main>
     <script src="/js/index.js" type="module"></script>
 </body>
 </html>

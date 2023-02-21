@@ -45,7 +45,7 @@ function weatherData(results){
     titleHeader.innerHTML = `${results.location.name}`;
     const currentDayOfDate = results.location.localtime.split(' ')[0];
 
-    getDayofDate(currentDayOfDate, currentDateHeader,currentDayOfDate);
+    getDayofDate(`${currentDayOfDate}`, currentDateHeader,currentDayOfDate);
     tempInfoCreate(results, countryInfoContainer);
     currentDayHourlyData(results, todayHourlyWeather);
 };
