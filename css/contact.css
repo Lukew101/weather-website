@@ -1,21 +1,70 @@
+main{
+    height: 90vh;
+    width: 100%;
+}
+
 .form-error {
     display: none;
-    color: red;
+    color: rgb(221, 2, 2);
     font-size: 0.9rem;
     margin-top: 2px;
 }
 
 #contactForm{
-    display: grid;
-    max-width: 300px;
+    display: inline-block;
+    min-width: 350px;
+    text-align: center;
+}
+
+#contactForm label{
+    margin-left: 10px;
+    text-align: left;
 }
 
 .input-section{
     display: grid;
-    margin: 10px 5px;
+    margin: 5px;
+}
+
+input{
+    border-radius: 100px;
+    border: 1px solid #d9d9d9;
+    outline: none;
+    padding: 10px 5px 5px 5px;
+}
+
+#message{
+    border-radius: 0;
+    border: 1px solid #d9d9d9;
+    outline: none;
+    height: 100px;
+    padding: 10px 5px 5px 5px;
 }
 
 .success-message{
     display: none;
-    color: green;
+    color: rgb(1, 97, 1);
+}
+
+.contactContainer{
+    display: grid;
+    justify-content: center;
+    grid-auto-flow: row;
+    grid-auto-rows: max-content;
+}
+
+.contactContainer .content-container{
+    max-width: 350px;
+    display: block;
+}
+
+.submit-button{
+    border-radius: 100px;
+    width: 100px;
+    height: 33px;
+    background-color: #373737;
+    margin: 10px 0;
+    border: 1px solid #373737;
+    color: white;
+    font-weight: bold;
 }

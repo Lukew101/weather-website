@@ -7,6 +7,7 @@ const nameInput = document.querySelector("#name");
 const emailInput = document.querySelector("#email");
 const subjectInput = document.querySelector("#subject");
 const addressInput = document.querySelector("#address");
+const messageInput = document.querySelector("#message");
 
 // Form validation
 function validateForm(){
@@ -45,9 +46,18 @@ function validateForm(){
             isValid = false;
         }
 
+        if(checkLength(messageInput.value,0)){
+            messageError.style.display = "none";
+            
+        } else {
+            messageError.style.display = "block";
+            isValid = false;
+        }
+
         if(isValid){
             succMessage.style.display = "block";
             clearFormData();
+            messageInput.value= "";
         } else {
             succMessage.style.display = "none";
         }

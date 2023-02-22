@@ -4,27 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Norway's Weather</title>
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/details.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <a href="/index.html">Home</a>
+        <a class="logo" href="/index.html">Norway's Weather</a>
+        <a href="/contact.html">Contact</a>
     </header>
-    <main>
-        <h1 class="location-header"></h1>
-        <h2>Today</h2>
-        <h2 class="current-date"></h2>
-        <div class="todays-weather-data">
-            <div class="countryInfoContainer"></div>
-            <div class="today-hourly-weather"></div>
+    <main class="centre-loader">
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-    
-        <div class="three-day-forecast"></div>
+        <div class="all-content">
+            <h1 class="location-header"></h1>
+            <h2>Today</h2>
+            <h2 class="current-date"></h2>
+            <div class="todays-weather-data">
+                <div class="countryInfoContainer"></div>
+                <div class="today-hourly-weather"></div>
+            </div>
+            <div class="three-day-forecast"></div>
+        </div>
     </main>
-    
-    
     <script src="js/components/errorMessage.js" type="module"></script>
     <script src="/js/details.js" type="module"></script>
 </body>

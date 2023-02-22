@@ -1,17 +1,46 @@
+main{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    min-height: 90vh;
+}
+
 .countryCard > * {
     margin: 20px 30px;
-    border: 1px lightgrey solid;
+    border: 1px darkgrey solid;
+    background-color: lightslategray;
+    border-radius: 30px;
+    max-width: 300px;
 }
 
 .countryCard a > * {
     padding: 5px 20px;
 }
 
-main{
-    text-align: center;
+.infoContainer > * {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
 }
 
-#search-button{
-    height: 20px;
-    width: 20px;
+.top-info{
+    display: none;
+}
+
+@media (max-width: 1300px) {
+    .infoContainer > *{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 950px) {
+    .infoContainer > *{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .infoContainer > *{
+        grid-template-columns: 1fr;
+    }
 }

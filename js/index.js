@@ -1,16 +1,14 @@
 import { obtainDateAndTime } from "./components/liveDateTime.js";
 import { tempInfoCreate } from "./components/currentDayData.js";
 import  { message }  from "./components/errorMessage.js";
+import { userSearchInput } from "./components/userSearchInput.js";
 
 const infoContainer = document.querySelector(".infoContainer");
 const countryCard = document.querySelector(".countryCard");
-const inputBar = document.querySelector("#search");
-const searchButton = document.querySelector("#search-button");
-const form = document.querySelector("form");
-const searchErrorMessage = document.querySelector(".search-error-message");
+const loader = document.querySelector(".loader");
+const topPageInfo = document.querySelector(".top-info");
 
 const countries = ['oslo', 'bergen', 'stavanger', 'trondheim', 'tromsø'];
-const searchLocations = ['oslo', 'bergen', 'stavanger', 'trondheim', 'tromsø','jessheim', 'kristiansand', 'ålesund', 'lillehammer', 'hamar', 'arendal', 'fredrikstad', 'bodø', 'narvik', 'sandefjord', 'harstad', 'larvik']
 
 
 const options = {
@@ -21,15 +19,15 @@ const options = {
 	}
 };
 
-obtainDateAndTime();
-
 async function APIFetch(){
     try{
+      await obtainDateAndTime();
         for(let i = 0; i < countries.length; i++){
-            console.log(countries[i]);
             const country = countries[i];
             const response = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${country}&days=1`, options);
             const results = await response.json();
+            loader.style.display = "none";
+            topPageInfo.style.display = "block";
             console.log(results);
             createCountryCards(results);
         };
@@ -38,38 +36,10 @@ async function APIFetch(){
         console.log({error});
         const errorMessage = error.message ? error.message : error;
         infoContainer.innerHTML = message("error", errorMessage);
-    }
-    
+    } 
 }
 APIFetch();
-
-function userSearchInput(){
-    inputBar.addEventListener("keyup", function(event) {
-        if (event.key === "Enter") {
-          searchButton.click();
-        }
-      });
-    
-      form.addEventListener("submit", function(event) {
-        event.preventDefault();
-        const searchInput = inputBar.value.toLowerCase();
-        const findLocation = searchLocations.find(function(placeLocation) {
-          return placeLocation === searchInput;
-        });
-    
-        if (findLocation) {
-          location.href = `details.html?q=${findLocation}`;
-        } else {
-          searchErrorMessage.innerHTML = message("error", "Invalid input. Try again");
-        }
-    
-        inputBar.value = "";
-      });
-}
-// Make a search bar that drops down locations and that the user must click one
 userSearchInput();
-
-
 
 function createCountryCards(results){
     const pageDirect = document.createElement("a");
@@ -84,5 +54,3 @@ function createCountryCards(results){
     tempInfoCreate(results, pageDirect);
 }
 
-// Maybe some news from Norway
-// Interesting fact about that day

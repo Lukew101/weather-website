@@ -1,3 +1,5 @@
+import { cutConditionText } from "./cutConditionText.js";
+
 export const tempInfoCreate = (results,contentAppend) => {
     const tempInfo = document.createElement("div");
     tempInfo.classList = "current-weather-data";
@@ -31,6 +33,10 @@ export const tempInfoCreate = (results,contentAppend) => {
                                 <h3>UV</h3>
                                 <p>${results.current.uv}</p>
                            </div>
+                           <div>
+                                <h3>Rain</h3>
+                                <p>${results.current.precip_mm}mm</p>
+                           </div>
                         </div>`;
     
     contentAppend.appendChild(tempInfo);
@@ -45,12 +51,14 @@ export const currentDayHourlyData = (results,contentAppend) => {
         const timeWithoutDate = hour.time.split(' ')[1];
         const hourTime = new Date(hour.time);
 
+        const cutCondition = cutConditionText(hour.condition.text);
+
         if(hourTime.getTime() >= currentTime.getTime()){
             contentAppend.innerHTML += `<div class="temp-time-data">
                                     <p>${timeWithoutDate}</p>
                                     <img src="${hour.condition.icon}" class="weather-icon">
                                     <p>${hour.temp_c}°C</p>
-                                    <p>${hour.condition.text}</p>
+                                    <p>${cutCondition}</p>
                                     <p>${hour.precip_mm}mm</p>
                                     <p>${hour.chance_of_rain}%</p>
                                 </div>`

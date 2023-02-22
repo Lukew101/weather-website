@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Contact</title>
+        <title>Norway's | Contact</title>
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/contact.css" rel="stylesheet" />
         <link rel="icon" href="data:;base64,=" />
@@ -11,36 +11,45 @@
     <body>
         <header>
             <a href="/index.html">Home</a>
+            <a class="logo" href="/index.html">Norway's Weather</a>
             <a href="/contact.html">Contact</a>
         </header>
         <main class="contactContainer">
-            <h1>Contact Form</h1>
-            <form id="contactForm">
-                <div class="success-message">
-                    <p>Your form has been successfully completed!</p>
-                </div>
-                <div class="input-section">
-                    <label for="name">Name <span class="label-requirement">(required)</span></label>
-                    <input name="name" type="text" id="name" />
-                    <div class="form-error" id="nameError">Please enter your name</div>
-                </div>
-                <div class="input-section">
-                    <label for="subject">Subject <span class="label-requirement">(minimum 10 characters)</span></label>
-                    <input name="subject" type="text" id="subject" />
-                    <div class="form-error" id="subjectError">The subject must be at least 10 characters</div>
-                </div>
-                <div class="input-section">
-                    <label>Email <span class="label-requirement">(required)</span></label>
-                    <input name="email" type="text" id="email" />
-                    <div class="form-error" id="emailError">Please enter a valid email address</div>
-                </div>
-                <div class="input-section">
-                    <label>Address <span class="label-requirement">(minimum 25 characters required)</span></label>
-                    <input name="address" type="text" id="address" />
-                    <div class="form-error" id="addressError">Address must have at least 25 characters</div>
-                </div>
-                <button class="submit-button">Submit</button>
-            </form>
+            <div class="content-container">
+                <h1>Contact Form</h1>
+                <h2>Please fill out the form below to contact us!</h2>
+                <form id="contactForm">
+                    <div class="success-message">
+                        <p>Your form has been successfully completed!</p>
+                    </div>
+                    <div class="input-section">
+                        <label for="name">Name <span class="label-requirement">(required)</span></label>
+                        <input name="name" type="text" id="name" />
+                        <div class="form-error" id="nameError">Please enter your name</div>
+                    </div>
+                    <div class="input-section">
+                        <label for="subject">Subject <span class="label-requirement">(minimum 10 characters)</span></label>
+                        <input name="subject" type="text" id="subject" />
+                        <div class="form-error" id="subjectError">The subject must be at least 10 characters</div>
+                    </div>
+                    <div class="input-section">
+                        <label>Email <span class="label-requirement">(required)</span></label>
+                        <input name="email" type="text" id="email" />
+                        <div class="form-error" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    <div class="input-section">
+                        <label>Address <span class="label-requirement">(minimum 25 characters required)</span></label>
+                        <input name="address" type="text" id="address" />
+                        <div class="form-error" id="addressError">Address must have at least 25 characters</div>
+                    </div>
+                    <div class="input-section">
+                        <label>Message <span class="label-requirement">(required)</span></label>
+                        <textarea name="message" type="text" id="message"></textarea>
+                        <div class="form-error" id="messageError">Please enter your message</div>
+                    </div>
+                    <button class="submit-button">Submit</button>
+                </form>
+            </div>
         </main>
         <script src="js/contact.js" type="module"></script>
     </body>

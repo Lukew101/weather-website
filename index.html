@@ -4,23 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Norway's Weather | Home</title>
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/home.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/958e18979f.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <a href="/index.html">Home</a>
+        <a class="logo" href="/index.html">Norway's Weather</a>
         <a href="/contact.html">Contact</a>
     </header>
     <main>
-        <h1>Weather in Norway</h1>
-        <div class="time-date"></div>
-        <form>
-            <input name="search" type="text" id="search" placeholder="Search Norwegian city here" />
-            <button type="submit" id="search-button"></button>
-            <p class="search-error-message"></p>
-        </form>
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="top-info">
+            <h1>Today's Weather</h1>
+            <div class="time-date"></div>
+            <form>
+                <input name="search" type="text" id="search" placeholder="City in Norway" />
+                <button type="submit" id="search-button">
+                    <i class="fa fa-magnifying-glass"></i>
+                </button>
+                <p class="search-error-message"></p>
+            </form>
+        </div>
         <div class="infoContainer">
             <div class="countryCard"></div>
         </div>

@@ -1,13 +1,14 @@
 import { tempInfoCreate, currentDayHourlyData } from "./components/currentDayData.js";
 import  { message }  from "./components/errorMessage.js";
 import { threeDayForecast } from "./components/threeDayForecast.js";
-import { getDayofDate } from "./components/currentDayOfDate.js";
 import { changeCurrentDayBackground } from "./components/currentDayBackChange.js";
 
 const countryInfoContainer = document.querySelector(".countryInfoContainer");
 const threeDayforecastContainer = document.querySelector(".three-day-forecast");
 const todayHourlyWeather = document.querySelector(".today-hourly-weather");
-const currentDateHeader = document.querySelector(".current-date");
+const loader = document.querySelector(".loader");
+const allContent = document.querySelector(".all-content");
+const main = document.querySelector("main");
 
 const locationString = document.location.search;
 
@@ -29,6 +30,12 @@ async function fetchLocation(){
     try {
         const response = await fetch(url, options);
         const results = await response.json();
+
+        document.title = `Norway's Weather | ${results.location.name}`;
+        loader.style.display = "none";
+        main.classList.remove = "centre-loader";
+        allContent.style.display = "block";
+        
         console.log(results);
         weatherData(results);
         threeDayForecast(results, threeDayforecastContainer);
@@ -40,17 +47,13 @@ async function fetchLocation(){
 }
 fetchLocation();
 
-
 function weatherData(results){
     const titleHeader = document.querySelector(".location-header");
     titleHeader.innerHTML = `${results.location.name}`;
-    const currentDayOfDate = results.location.localtime.split(' ')[0];
 
     const weatherCondition = results.current.condition.text;
 
-    getDayofDate(`${currentDayOfDate}`, currentDateHeader,currentDayOfDate);
     tempInfoCreate(results, countryInfoContainer);
     currentDayHourlyData(results, todayHourlyWeather);
     changeCurrentDayBackground(countryInfoContainer, weatherCondition);
 };
-// Have the same basic info as up top from tempInfoCreate. Underneath add the 10 day forecast etc
