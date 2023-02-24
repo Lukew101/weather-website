@@ -7,8 +7,8 @@ main{
 
 .countryCard > * {
     margin: 20px 30px;
-    border: 1px darkgrey solid;
-    background-color: lightslategray;
+    border: 1px #373737 solid;
+    background-color: #373737;
     border-radius: 30px;
     max-width: 300px;
 }

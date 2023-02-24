@@ -27,7 +27,7 @@ function displayHourlyTemp(results,contentAppend){
 
         if(timeWithoutDateNumber % 2 === 0){
             contentAppend.innerHTML += `<div class="temp-time-data">
-                                        <p>${timeWithoutDate}</p>
+                                        <p class="time-display">${timeWithoutDate}</p>
                                         <img src="${results[i].condition.icon}" class="weather-icon">
                                         <p class="condition-text">${conditionText}</p>
                                         <p>${results[i].temp_c}°C</p>

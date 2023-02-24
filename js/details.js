@@ -36,7 +36,6 @@ async function fetchLocation(){
         main.classList.remove = "centre-loader";
         allContent.style.display = "block";
         
-        console.log(results);
         weatherData(results);
         threeDayForecast(results, threeDayforecastContainer);
     }

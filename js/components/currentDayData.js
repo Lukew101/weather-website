@@ -7,7 +7,7 @@ export const tempInfoCreate = (results,contentAppend) => {
     tempInfo.innerHTML = `<div class="tempInfo-top-sec">
                             <img src="${results.current.condition.icon}" class="weather-icon">
                             <div class="tempInfo-top-info">
-                                <p>${results.current.temp_c}°C</p>
+                                <p class="current-temp">${results.current.temp_c}°C</p>
                                 <p>Feels like ${results.current.feelslike_c}°C</p>
                                 <p>${results.current.condition.text}</p>
                             </div>
@@ -49,13 +49,14 @@ export const currentDayHourlyData = (results,contentAppend) => {
 
     currentDayHourlyData.forEach((hour) =>{
         const timeWithoutDate = hour.time.split(' ')[1];
+        const timeWithoutDateInt = parseInt(timeWithoutDate);
         const hourTime = new Date(hour.time);
 
         const cutCondition = cutConditionText(hour.condition.text);
 
-        if(hourTime.getTime() >= currentTime.getTime()){
+        if(hourTime.getTime() >= currentTime.getTime() && timeWithoutDateInt % 2 === 0){
             contentAppend.innerHTML += `<div class="temp-time-data">
-                                    <p>${timeWithoutDate}</p>
+                                    <p class="time-display">${timeWithoutDate}</p>
                                     <img src="${hour.condition.icon}" class="weather-icon">
                                     <p>${hour.temp_c}°C</p>
                                     <p>${cutCondition}</p>

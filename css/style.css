@@ -47,6 +47,15 @@
 }
 
 /* Global elements */
+h1,h2,h3,a{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+p,span,label{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+}
 a{
     text-decoration: none;
     color: black;
@@ -54,11 +63,15 @@ a{
 
 body,
 h1{
-    margin: 0px;
+    margin: 0;
+}
+
+main > * {
+    margin-left: 10px;
 }
 
 main{
-    background-color: lightblue;
+    background-color: #003651;
 }
 
 h1{
@@ -75,6 +88,7 @@ header{
     justify-content: center;
     align-items: center;
     background-color: #373737;
+    text-align: center;
 }
 
 header > * {
@@ -92,13 +106,22 @@ h1{
     font-size: 26px;
 }
 
+.logo-break{
+    display: block;
+}
+
 .tempInfo-top-sec{
-    display: flex;
+    display: inline-flex;
+}
+
+.tempInfo-top-sec > * {
+    margin: 0 10px;
 }
 
 .tempInfo-top-sec img{
-    max-width: 80px;
-    max-height: 80px;
+    max-width: 70px;
+    max-height: 70px;
+    margin-top: 10px;
 }
 
 .tempInfo-top-info{
@@ -108,6 +131,14 @@ h1{
 .card-extra-info-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-extra-info-grid p {
+    font-size: 16px;
+}
+
+.current-temp{
+    font-size: 22px;
 }
 
 /* Search bar */
@@ -128,4 +159,10 @@ h1{
 #search-button i {
     font-size: 17px;
     object-fit: cover;
+}
+
+@media (max-width: 450px) {
+    header a {
+        margin: 0 20px;
+    }
 }

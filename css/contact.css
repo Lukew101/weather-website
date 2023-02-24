@@ -41,11 +41,6 @@ input{
     padding: 10px 5px 5px 5px;
 }
 
-.success-message{
-    display: none;
-    color: rgb(1, 97, 1);
-}
-
 .contactContainer{
     display: grid;
     justify-content: center;
@@ -67,4 +62,12 @@ input{
     border: 1px solid #373737;
     color: white;
     font-weight: bold;
+}
+
+.success-message{
+    display: none;
+}
+
+.success-message p{
+    color: green;
 }

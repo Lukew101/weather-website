@@ -22,18 +22,16 @@ const options = {
 async function APIFetch(){
     try{
       await obtainDateAndTime();
-        for(let i = 0; i < countries.length; i++){
-            const country = countries[i];
-            const response = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${country}&days=1`, options);
-            const results = await response.json();
-            loader.style.display = "none";
-            topPageInfo.style.display = "block";
-            console.log(results);
-            createCountryCards(results);
-        };
+      for(let i = 0; i < countries.length; i++){
+        const country = countries[i];
+        const response = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${country}&days=1`, options);
+        const results = await response.json();
+        loader.style.display = "none";
+        topPageInfo.style.display = "block";
+        createCountryCards(results);
+    };
     }
     catch(error){
-        console.log({error});
         const errorMessage = error.message ? error.message : error;
         infoContainer.innerHTML = message("error", errorMessage);
     } 

@@ -10,60 +10,59 @@ const addressInput = document.querySelector("#address");
 const messageInput = document.querySelector("#message");
 
 // Form validation
-function validateForm(){
-    contactForm.addEventListener("submit", function(event){
+contactForm.addEventListener("submit", (event) => validateForm(event));
+
+function validateForm(event){
+
+    event.preventDefault();
+
+    let isValid = true;
+
+    if(checkLength(nameInput.value,0)){
+        nameError.style.display = "none";
         
-        event.preventDefault()
+    } else {
+        nameError.style.display = "block";
+        isValid = false;
+    }
 
-        let isValid = true;
+    if(checkLength(subjectInput.value,9)){
+        subjectError.style.display = "none";
+    } else {
+        subjectError.style.display = "block";
+        isValid = false;
+    }
 
-        if(checkLength(nameInput.value,0)){
-            nameError.style.display = "none";
-            
-        } else {
-            nameError.style.display = "block";
-            isValid = false;
-        }
+    if(validateEmail(emailInput.value)){
+        emailError.style.display = "none";
+    } else {
+        emailError.style.display = "block";
+        isValid = false;
+    }
 
-        if(checkLength(subjectInput.value,9)){
-            subjectError.style.display = "none";
-        } else {
-            subjectError.style.display = "block";
-            isValid = false;
-        }
+    if(checkLength(addressInput.value,24)){
+        addressError.style.display = "none";
+    } else {
+        addressError.style.display = "block";
+        isValid = false;
+    }
 
-        if(validateEmail(emailInput.value)){
-            emailError.style.display = "none";
-        } else {
-            emailError.style.display = "block";
-            isValid = false;
-        }
+    if(checkLength(messageInput.value,0)){
+        messageError.style.display = "none";
+        
+    } else {
+        messageError.style.display = "block";
+        isValid = false;
+    }
 
-        if(checkLength(addressInput.value,24)){
-            addressError.style.display = "none";
-        } else {
-            addressError.style.display = "block";
-            isValid = false;
-        }
-
-        if(checkLength(messageInput.value,0)){
-            messageError.style.display = "none";
-            
-        } else {
-            messageError.style.display = "block";
-            isValid = false;
-        }
-
-        if(isValid){
-            succMessage.style.display = "block";
-            clearFormData();
-            messageInput.value= "";
-        } else {
-            succMessage.style.display = "none";
-        }
-    })
+    if(isValid){
+        succMessage.style.display = "block";
+        clearFormData();
+        messageInput.value= "";
+    } else {
+        succMessage.style.display = "none";
+    }
 }
-validateForm();
 
 // Character length checkers
 function checkLength(characterAmount, requiredLength){

@@ -4,20 +4,22 @@ main{
     min-height: 100vh;
 }
 
+p{
+    font-size: 14px;
+}
+
 .todays-weather-data{
     display: flex;
 }
 
 .temp-time-data{
     display: inline-block;
-}
-
-.temp-time-data > *{
-    margin: 20px 10px;
+    text-align: center;
+    width: 100px;
 }
 
 .current-weather-data{
-    display: flex;
+    width: 400px;
 }
 
 .all-content{
@@ -27,4 +29,52 @@ main{
 .centre-loader{
     display: grid;
     justify-content: center;
+}
+
+.countryInfoContainer{
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 400px;
+    text-align: center;
+    max-height: 320px;
+}
+
+.countryInfoContainer > *{
+    color: white;
+}
+
+.time-display{
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+@media (max-width: 1000px) {
+    main{
+        min-height: 100vh;
+        text-align: center;
+    }
+    .todays-weather-data{
+        display: grid;
+        justify-content: center;
+    }
+    .todays-weather-data > *{
+        max-width: 400px;
+        margin: 0 5px;
+    }
+    .temp-time-data{
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 450px) {
+    .card-extra-info-grid{
+        max-width: 90%;
+    }
+    .todays-weather-data > *{
+        max-width: 300px;
+    }
+    .current-weather-data{
+        width: 300px;
+    }
 }
