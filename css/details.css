@@ -4,8 +4,12 @@ main{
     min-height: 100vh;
 }
 
+main > * {
+    margin-left: 10px;
+}
+
 p{
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .todays-weather-data{
@@ -36,7 +40,7 @@ p{
     background-repeat: no-repeat;
     max-width: 400px;
     text-align: center;
-    max-height: 320px;
+    max-height: 340px;
 }
 
 .countryInfoContainer > *{
@@ -75,6 +79,6 @@ p{
         max-width: 300px;
     }
     .current-weather-data{
-        width: 300px;
+        width: 320px;
     }
 }

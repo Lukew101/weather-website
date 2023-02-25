@@ -41,7 +41,8 @@ async function fetchLocation(){
     }
     catch(error) {
         const errorMessage = error.message ? error.message : error;
-        countryInfoContainer.innerHTML = message("error", errorMessage);
+        loader.style.display = "none";
+        main.innerHTML = message("error", errorMessage);
     }
 }
 fetchLocation();

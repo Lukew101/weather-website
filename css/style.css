@@ -40,6 +40,8 @@
 /* Alerts */
 .error{
     color: red;
+    margin-top: 50px;
+    font-size: 30px;
 }
 
 .not-found-alert{
@@ -64,10 +66,6 @@ a{
 body,
 h1{
     margin: 0;
-}
-
-main > * {
-    margin-left: 10px;
 }
 
 main{
@@ -115,13 +113,13 @@ h1{
 }
 
 .tempInfo-top-sec > * {
-    margin: 0 10px;
+    margin: 0 20px;
 }
 
 .tempInfo-top-sec img{
-    max-width: 70px;
-    max-height: 70px;
-    margin-top: 10px;
+    max-width: 100px;
+    max-height: 80px;
+    margin-top: 30px;
 }
 
 .tempInfo-top-info{

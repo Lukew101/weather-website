@@ -2,6 +2,7 @@
 const contactForm = document.querySelector("#contactForm");
 const succMessage = document.querySelector(".success-message");
 const submitButton = document.querySelector(".submit-button");
+
 // Form inputs
 const nameInput = document.querySelector("#name");
 const emailInput = document.querySelector("#email");

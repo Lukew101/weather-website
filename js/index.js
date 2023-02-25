@@ -33,6 +33,7 @@ async function APIFetch(){
     }
     catch(error){
         const errorMessage = error.message ? error.message : error;
+        loader.style.display = "none";
         infoContainer.innerHTML = message("error", errorMessage);
     } 
 }
@@ -51,4 +52,3 @@ function createCountryCards(results){
     pageDirect.appendChild(cardHeader);
     tempInfoCreate(results, pageDirect);
 }
-
