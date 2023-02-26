@@ -1,10 +1,9 @@
 import { obtainDateAndTime } from "./components/liveDateTime.js";
-import { tempInfoCreate } from "./components/currentDayData.js";
 import  { message }  from "./components/errorMessage.js";
 import { userSearchInput } from "./components/userSearchInput.js";
+import { createCountryCards } from "./components/createCountryCards.js";
 
-const infoContainer = document.querySelector(".infoContainer");
-const countryCard = document.querySelector(".countryCard");
+const main = document.querySelector("main");
 const loader = document.querySelector(".loader");
 const topPageInfo = document.querySelector(".top-info");
 
@@ -21,34 +20,22 @@ const options = {
 
 async function APIFetch(){
     try{
-      await obtainDateAndTime();
-      for(let i = 0; i < countries.length; i++){
-        const country = countries[i];
-        const response = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${country}&days=1`, options);
-        const results = await response.json();
-        loader.style.display = "none";
-        topPageInfo.style.display = "block";
-        createCountryCards(results);
-    };
+        await obtainDateAndTime();
+        for(let i = 0; i < countries.length; i++){
+            const country = countries[i];
+            const response = await fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${country}&days=1`, options);
+            const results = await response.json();
+
+            loader.style.display = "none";
+            topPageInfo.style.display = "block";
+            createCountryCards(results);
+        };
     }
     catch(error){
         const errorMessage = error.message ? error.message : error;
         loader.style.display = "none";
-        infoContainer.innerHTML = message("error", errorMessage);
+        main.innerHTML = message("error", errorMessage);
     } 
 }
 APIFetch();
 userSearchInput();
-
-function createCountryCards(results){
-    const pageDirect = document.createElement("a");
-    const cardHeader = document.createElement("h2");
-
-    pageDirect.setAttribute("href", `details.html?q=${results.location.name}`);
-
-    cardHeader.innerHTML = `${results.location.name}`
-
-    countryCard.appendChild(pageDirect);
-    pageDirect.appendChild(cardHeader);
-    tempInfoCreate(results, pageDirect);
-}
