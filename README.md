@@ -1,4 +1,4 @@
-# Weather in Norway
+# Norway's Weather
 
 ![image](https://github.com/Lukew101/weather-website/raw/main/assets/weather-norway-home.JPG)
 
