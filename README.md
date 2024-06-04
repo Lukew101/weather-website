@@ -1,6 +1,6 @@
 # Weather in Norway
 
-![image](https://github.com/Lukew101/August-Semester-Project-1/raw/main/assets/weather-norway-home.JPG)
+![image](https://github.com/Lukew101/weather-website/raw/main/assets/weather-norway-home.JPG)
 
 ## Description
 This dynamically updating weather website provides real-time weather information for various locations across Norway. Leveraging the WeatherAPI available [here](https://rapidapi.com/weatherapi/api/weatherapi-com/), it ensures users receive the latest weather updates, including temperature, precipitation, wind conditions, and more, for their selected Norwegian cities and towns.
